@@ -95,7 +95,7 @@
 					<img alt="" id="teaser" src="./resources/teaser.png" style="width: 100%; max-width: 1100px;"/>
 				</div>
 			</div>
-		<h1 style="margin-top: 10px;">Abstract</h1>
+		<h1 style="margin-top: 10px;">Abstract (maybe TLDR)</h1>
 		</center>
 		<p>
 			Traditional super-resolution (SR) methods assume an “ideal” downscaling SR kernel (e.g., bicubic downscaling) between the high-resolution (HR) image and
@@ -106,7 +106,7 @@
 			introduce a zero-shot diffusion-based method that uses an unrestricted kernel. Our
 			method recovers the unique image-specific SR-kernel directly from the LR input
 			image, while simultaneously recovering its corresponding HR image. KernelFusion exploits the principle that the correct SR-kernel is the one that maximizes
-			patch similarity across different scales of the LR image. We first train an imagespecific patch-based diffusion model on the single LR input image, capturing
+			patch similarity across different scales of the LR image. We first train an images-pecific patch-based diffusion model on the single LR input image, capturing
 			its unique internal patch statistics. We then reconstruct a larger HR image with
 			the same learned patch distribution, while simultaneously recovering the correct
 			downscaling SR-kernel that maintains this cross-scale relation between the HR
@@ -115,6 +115,18 @@
 			new paradigm of zero-shot Blind-SR that can handle unrestricted, image-specific
 			kernels previously thought impossible. 
 		</p>
+
+		<center>
+			<div class="container" style="margin-top: 20px;">
+				<div class="row justify-content-md-center">
+					<!-- <p  style="font-size:18px;"><strong>Teaser Image</strong></p> -->
+				</div>
+				<div class="row justify-content-md-center">
+					<img alt="" id="sr_kernel_importance" src="./resources/sr_kernel_importance.png" style="width: 100%; max-width: 1100px;"/>
+				</div>
+			</div>
+		</center>
+
 		<!-- end abstract and teaser image-->
 
 		<!-- Images -->
