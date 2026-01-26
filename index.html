@@ -47,7 +47,7 @@
 
 		<!-- top - author names, affiliation and links -->
 		<center>
-			<h1>KernelFusion: Zero-Shot Blind Super-Resolution via Patch Diffusion</h1>
+			<h1 style="margin-top: 30px;">KernelFusion: Zero-Shot Blind Super-Resolution via Patch Diffusion</h1>
 			<h4>ICLR 2026</h4>
 			<div class="container">
 				<div class="row justify-content-md-center">
@@ -120,8 +120,13 @@
 		<!-- Images -->
 		<hr id="images">
 		<center><h1 style="margin-top: 65px;">KernelFusion Method</h1></center>
-		<p>Some explanation about the displayed images.<br>They can either be static</p>
-		
+		<p>
+			Our approach consists of 2 stages:
+			<u><strong>Phase 1</strong></u>: We train a diffusion model (PD) to learn the patch distribution of a single image.
+			<br>
+			<u><strong>Phase 2</strong></u>: We perform blind SR and kernel estimation simultaneously.  In particular, we use the trained PD to shift the HR guess toward the patch distribution of the LR input. A refinement U-Net and an implicit kernel representation model are trained jointly under a consistency loss, ensuring that convolving the estimated HR image with the learned kernel reproduces the original LR image.
+		</p>
+
 		<!-- static images -->
 		<center>
 			<div class="container">
