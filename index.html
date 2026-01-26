@@ -47,26 +47,26 @@
 
 		<!-- top - author names, affiliation and links -->
 		<center>
-			<h1>Paper Name</h1>
-			<h4>Published in</h4>
+			<h1>KernelFusion: Zero-Shot Blind Super-Resolution via Patch Diffusion</h1>
+			<h4>ICLR 2026</h4>
 			<div class="container">
 				<div class="row justify-content-md-center">
 					<div class="col-md-auto">
-						<span style="font-size:24px"><a href="https://thispersondoesnotexist.com/" target="_blank" rel="noopener noreferrer">Author 1</a></span>
+						<span style="font-size:24px"><a href="https://thispersondoesnotexist.com/" target="_blank" rel="noopener noreferrer">Oliver Heinimann</a></span>
 					</div>
 					<div class="col-md-auto">
-						<span style="font-size:24px"><a href="https://thispersondoesnotexist.com/" target="_blank" rel="noopener noreferrer">Author 2</a></span>
+						<span style="font-size:24px"><a href="https://thispersondoesnotexist.com/" target="_blank" rel="noopener noreferrer">Tal Zimbalist</a></span>
 					</div>
 					<div class="col-md-auto">
-						<span style="font-size:24px"><a href="https://thispersondoesnotexist.com/" target="_blank" rel="noopener noreferrer">Author 3</a></span>
+						<span style="font-size:24px"><a href="https://thispersondoesnotexist.com/" target="_blank" rel="noopener noreferrer">Assaf Shocher</a></span>
 					</div>
 					<div class="col-md-auto">
-						<span style="font-size:24px"><a href="https://thispersondoesnotexist.com/" target="_blank" rel="noopener noreferrer">Author 4</a></span>
+						<span style="font-size:24px"><a href="https://thispersondoesnotexist.com/" target="_blank" rel="noopener noreferrer">Michal Irani</a></span>
 					</div>
 				</div>
 			</div>
 
-			<p class="text-center affilation" style="font-size: 20pt;">Affiliation<p>
+			<p class="text-center affilation" style="font-size: 20pt;">Weizmann Institute of Science<p>
 
 			<div class="container">
 				<div class="row justify-content-md-center">
@@ -77,7 +77,7 @@
 						<span><a class="btn btn-outline-primary" href='resources/supp.pdf' role="button" style="font-size: 24px;"><i class="fas fa-file-pdf"></i> Supplementary</a></span>
 					</div>
 					<div class="col-md-auto">
-						<span><a class="btn btn-outline-primary" href='https://github.com/' role="button" style="font-size: 24px;"><i class="fab fa-github"></i> Code</a></span>
+						<span><a class="btn btn-outline-primary" href='https://github.com/' role="button" style="font-size: 24px;"><i class="fab fa-github"></i> Code (Coming Soon)</a></span>
 					</div>
 				</div>
 			</div>
@@ -97,14 +97,24 @@
 		<h1 style="margin-top: 10px;">Abstract</h1>
 		</center>
 		<p>
-			An abstract which describe the paper's contributions and importance in few short sentences. 
+			Traditional super-resolution (SR) methods assume an “ideal” downscaling SRkernel (e.g., bicubic downscaling) between the high-resolution (HR) image and
+			the low-resolution (LR) image. Such methods fail once the LR images are generated differently. Current blind-SR methods aim to remove this assumption,
+			but are still fundamentally restricted to rather simplistic downscaling SR-kernels
+			(e.g., anisotropic Gaussian kernels), and fail on more complex (out of distribution) downscaling degradations. However, using the correct SR-kernel is often
+			more important than using a sophisticated SR algorithm. In “KernelFusion” we
+			introduce a zero-shot diffusion-based method that uses an unrestricted kernel. Our
+			method recovers the unique image-specific SR-kernel directly from the LR input
+			image, while simultaneously recovering its corresponding HR image. KernelFusion exploits the principle that the correct SR-kernel is the one that maximizes
+			patch similarity across different scales of the LR image. We first train an imagespecific patch-based diffusion model on the single LR input image, capturing
+			its unique internal patch statistics. We then reconstruct a larger HR image with
+			the same learned patch distribution, while simultaneously recovering the correct
+			downscaling SR-kernel that maintains this cross-scale relation between the HR
+			and LR images. Empirical results demonstrate that KernelFusion handles complex downscaling degradations where existing Blind-SR methods fail, achieving
+			robust kernel recovery and superior SR quality. By breaking free from predefined kernel assumptions and training distributions, KernelFusion establishes a
+			new paradigm of zero-shot Blind-SR that can handle unrestricted, image-specific
+			kernels previously thought impossible. 
 		</p>
 		<!-- end abstract and teaser image-->
-
-		<!-- video of a talk about your paper (youtube embedding) -->
-		<center><h1>Talk</h1></center>
-		<p align="center">
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/ly36kn0ug4k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>		</p>
 
 		<!-- Images -->
 		<hr id="images">
@@ -116,10 +126,13 @@
 			<div class="container">
 				<div class="row justify-content-md-center">
 					<div class="col-md-auto" style="padding: 1px;">
-						<img alt="" src="./resources/image1.png" style="max-width: 375px;"/>
+						<img alt="" src="./resources/method.jpg" style="max-width: 375px;"/>
 					</div>
 					<div class="col-md-auto" style="padding: 1px;">
-						<img alt="" src="./resources/image2.png" style="max-width: 375px;"/>
+						<img alt="" src="./resources/sr_fig.png" style="max-width: 375px;"/>
+					</div>
+					<div class="col-md-auto" style="padding: 1px;">
+						<img alt="" src="./resources/supp_fig_kernel_panel.png" style="max-width: 375px;"/>
 					</div>
 				</div>
 			</div>
@@ -360,178 +373,7 @@
 
 		<!-- end Images -->
 
-		<!-- Audio -->
-		<hr id="audio">
-		<center><h1 style="margin-top: 65px;">Some Audio Files Demonstrating Your Paper</h1></center>
-		<p>The above can also also be applied for different content sources, as audio</p>
-		<center>
-			<div class="container">
-				<div class="row justify-content-md-center">
-					<!-- dropdown audio -->
-					<div class="col-sm">
-						<audio controls id="dropdown_audio">
-							<source src="./resources/audio/audio1.mp4" type="audio/mp4">
-						  </audio>
-						<div class="btn-group my-btn" id="myAudioDropdown">
-							<button type="button" onclick="document.getElementById('dropdown_audio').src='./resources/audio/audio1.mp4'" class="btn btn-info">Dropdown</button>
-							<button type="button" class="btn my-btn-info btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-								<span class="visually-hidden">Toggle Dropdown</span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" onclick="document.getElementById('dropdown_audio').src='./resources/audio/audio2.mp4'">2</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('dropdown_audio').src='./resources/audio/audio3.mp4'">3</a></li>
-								<li><hr class="dropdown-divider"></li> 
-								<li><a class="dropdown-item" onclick="document.getElementById('dropdown_audio').src='./resources/audio/audio1.mp4'">1</a></li>
-							</ul>
-						</div>
-					</div>
-					<!-- end dropdown audio -->
-					<!-- audio carousel -->
-					<div class="col-sm" style="max-width: 550px;">
-							<center>
-								<div id="myAudioCarousel" class="carousel" data-ride="carousel" data-interval="false">
-									<ol class="carousel-indicators audio-carousel-indicators">
-									<li data-target="#myAudioCarousel" data-slide-to="0" class="active"></li>
-									<li data-target="#myAudioCarousel" data-slide-to="1"></li>
-									<li data-target="#myAudioCarousel" data-slide-to="2"></li>
-									</ol>
-									<div class="carousel-inner">
-									<div class="carousel-item active" >
-										<audio controls>
-											<source src="./resources/audio/audio1.mp4" type="audio/mp4">
-										  </audio>
-										  <div class="position-relative text-center">
-											text describing the audio file
-										  </div>
-									</div>
-									<div class="carousel-item">
-										<audio controls>
-											<source src="./resources/audio/audio2.mp4" type="audio/mp4">
-										  </audio>
-										  <div class="position-relative text-center">
-											which changes
-										  </div>
-									</div>
-									<div class="carousel-item">
-										<audio controls>
-											<source src="./resources/audio/audio3.mp4" type="audio/mp4">
-										  </audio>
-										  <div class="position-relative text-center">
-											on click	
-										  </div>
-									</div>
-									</div>
-									<a class="carousel-control-prev" href="#myAudioCarousel" role="button" data-slide="prev">
-										<i class="fa-solid fa-circle-left fa-2xl left-arrow"></i>
-									<span class="sr-only">Previous</span>
-									</a>
-									<a class="carousel-control-next" href="#myAudioCarousel" role="button" data-slide="next">
-										<i class="fa-solid fa-circle-right fa-2xl right-arrow"></i>
-									<span class="sr-only">Next</span>
-									</a>
-								</div>
-							</center>
-					</div>
-					<!-- end audio carousel -->
-					</div>
-			</div>
-			</center>
-		<br>
-		<!-- end Audio -->
 
-		<!-- Video -->
-		<hr id="video">
-		<center><h1 style="margin-top: 65px;">Some Video Demonstrating Your Paper</h1></center>
-		<p>or video</p>
-		<center>
-			<div class="container">
-				<div class="row justify-content-md-center">
-					<!-- video dropdown -->
-					<div class="col-sm" style="max-width: 550px;">
-						<video controls id="dropdown_video">
-							<source src="./resources/video/video1.mp4" type="video/mp4">
-							</video>
-						<div class="btn-group my-btn" id="myVideoDropdown">
-							<button type="button" onclick="document.getElementById('dropdown_video').src='./resources/video/video1.mp4'" class="btn btn-info">Dropdown</button>
-							<button type="button" class="btn my-btn-info btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-								<span class="visually-hidden">Toggle Dropdown</span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" onclick="document.getElementById('dropdown_video').src='./resources/video/video2.mp4'">2</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('dropdown_video').src='./resources/video/video3.mp4'">3</a></li>
-								<li><hr class="dropdown-divider"></li> 
-								<li><a class="dropdown-item" onclick="document.getElementById('dropdown_video').src='./resources/video/video1.mp4'">1</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- end video dropdown -->
-
-				<!-- video carousel -->
-				<div class="row justify-content-md-center" style="margin-top: 25px;">
-					<div class="col-sm" style="max-width: 750px;">
-						<center>
-							<div id="myVideoCarousel" class="carousel" data-ride="carousel" data-interval="false">
-								<ol class="carousel-indicators audio-carousel-indicators">
-								<li data-target="#myVideoCarousel" data-slide-to="0" class="active"></li>
-								<li data-target="#myVideoCarousel" data-slide-to="1"></li>
-								<li data-target="#myVideoCarousel" data-slide-to="2"></li>
-								</ol>
-								<div class="carousel-inner">
-								<div class="carousel-item active" >
-									<video controls id="dropdown_video">
-										<source src="./resources/video/video1.mp4" type="video/mp4">
-										</video>
-									<p>some text describing</p>
-								</div>
-								<div class="carousel-item">
-									<video controls id="dropdown_video">
-										<source src="./resources/video/video2.mp4" type="video/mp4">
-										</video>
-									<p>the video</p>
-								</div>
-								<div class="carousel-item">
-									<video controls id="dropdown_video">
-										<source src="./resources/video/video3.mp4" type="video/mp4">
-										</video>
-								</div>
-								</div>
-								<a class="carousel-control-prev" href="#myVideoCarousel" role="button" data-slide="prev">
-									<i class="fa-solid fa-circle-left fa-2xl left-arrow"></i>
-								<span class="sr-only">Previous</span>
-								</a>
-								<a class="carousel-control-next" href="#myVideoCarousel" role="button" data-slide="next">
-									<i class="fa-solid fa-circle-right fa-2xl right-arrow"></i>
-								<span class="sr-only">Next</span>
-								</a>
-							</div>
-						</center>
-					</div>	
-				</div>
-				<!-- end video carousel -->
-				<!-- video overlay -->
-				<div class="row justify-content-md-center" style="margin-top: 50px;">
-					<div class="col-sm" style="max-width: 750px;">
-						<center>
-							<div class="overlay-container">
-								<video playsinline autoplay muted loop>
-									<source src="./resources/video/video3.mp4" type="video/mp4">
-								</video>
-								<div class="overlay-video">
-									<video playsinline autoplay muted loop>
-										<source src="./resources/video/video2.mp4" type="video/mp4">
-									</video>
-									<p class="text-info">a text describing the overlay video</p>
-								</div>
-							</div>	
-						</center>
-					</div>
-				</div>
-				<!-- end video overlay -->
-			</div>
-			</center>
-		<br>
-		<!-- end Video -->
 
 		<!-- Paper -->
 		<hr id="paper">
@@ -565,11 +407,11 @@
 		<tbody>
 			<pre class="command-copy"><div class="container"><div class="row"><div class="col" id="citation">
 @inproceedings{
-	authorXXXXpaper,
-	title={Your Catchy yet Informational Title},
-	author={Author 1, Author 2, Author 3 and Author 4},
-	booktitle={Some International Conference},
-	year={XXXX},
+	Heinimann2026KernelFusion,
+	title={KernelFusion: Zero-Shot Blind Super-Resolution via Patch Diffusion},
+	author={Oliver Heinimann, Tal Zimbalist, Assaf Shocher and Michal Irani},
+	booktitle={The Fourteenth International Conference on Learning Representations},
+	year={2026},
 	url={https://openreview.net/}
 }
 		</div><div class="col text-end"><button type="button" class="btn btn-light" onclick="copyBib()" onmouseover="console.log('hover');"><i class="fa-regular fa-copy"></i></button></div></div></div></pre>
