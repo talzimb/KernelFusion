@@ -180,34 +180,45 @@
 		<center>
 		<div class="container">
 			<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 gy-3">
-				<div class="col">
-					<img alt="" id="img_6_" class="round" src="./resources/dropdown/img_6_/GT.png" width="100%" style="padding-right: 2%; max-width:250px;"/>
-					<div class="btn-group my-btn" id="myDropdown">
-						<button type="button" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/GT.png'" class="btn btn-info">Dropdown</button>
-						<button type="button" class="btn my-btn-info btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-							<span class="visually-hidden">Toggle Dropdown</span>
-						</button>
-						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/Bicubic.png'">Bicubic</a></li>
-							<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/KernelFusion.png'">KernelFusion</a></li>
-							<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/SinSR.png'">SinSR</a></li>
-							<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/StableSR.png'">StableSR</a></li>
-							<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/SwinIR.png'">SwinIR</a></li>
-							<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/DCLS.png'">DCLS</a></li>
-							<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/RealDAN.png'">RealDAN</a></li>
-							<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/DRAT.png'">DRAT</a></li>
-							<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/DIFFBIR.png'">DIFFBIR</a></li>
-							<li><hr class="dropdown-divider"></li> 
-							<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/GT.png'">GT</a></li>
-						</ul>
-					</div>
+			<div class="col">
+			<div class="d-flex align-items-start gap-3">
+				<!-- STATIC IMAGE (stays the same) -->
+				<img
+				src="./resources/dropdown/img_6_/gt_marked.png"
+				class="round"
+				style="max-width:150px; width:100%;"
+				alt="Static"
+				/>
+				<div>
+				<img alt="" id="img_6_" class="round" src="./resources/dropdown/img_6_/GT.png" width="100%" style="padding-right: 2%; max-width:250px;"/>
+				<div class="btn-group my-btn" id="myDropdown">
+					<button type="button" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/GT.png'" class="btn btn-info">Dropdown</button>
+					<button type="button" class="btn my-btn-info btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+					<span class="visually-hidden">Toggle GT</span>
+					</button>
+					<ul class="dropdown-menu">
+					<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/Bicubic.png'">Bicubic</a></li>
+					<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/KernelFusion.png'">KernelFusion</a></li>
+					<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/SinSR.png'">SinSR</a></li>
+					<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/StableSR.png'">StableSR</a></li>
+					<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/SwinIR.png'">SwinIR</a></li>
+					<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/DCLS.png'">DCLS</a></li>
+					<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/RealDAN.png'">RealDAN</a></li>
+					<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/DRAT.png'">DRAT</a></li>
+					<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/DIFFBIR.png'">DIFFBIR</a></li>
+					<li><hr class="dropdown-divider"></li>
+					<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/GT.png'">GT</a></li>
+					</ul>
 				</div>
+				</div>
+			</div>
+			</div>
 				<div class="col">
 					<img alt="" id="img_27" class="round" src="./resources/dropdown/img_27/GT.png" width="100%" style="padding-right: 2%; max-width:250px;"/>
 					<div class="btn-group my-btn" id="myDropdown">
-						<button type="button" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27_/GT.png'" class="btn btn-info">Dropdown</button>
+						<button type="button" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/GT.png'" class="btn btn-info">Dropdown</button>
 						<button type="button" class="btn my-btn-info btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-							<span class="visually-hidden">Toggle Dropdown</span>
+							<span class="visually-hidden">Toggle GT</span>
 						</button>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/Bicubic.png'">Bicubic</a></li>
@@ -220,16 +231,16 @@
 							<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/DRAT.png'">DRAT</a></li>
 							<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/DIFFBIR.png'">DIFFBIR</a></li>
 							<li><hr class="dropdown-divider"></li> 
-							<li><a class="dropdown-item" onclick="document.getElementById('img_27_').src='./resources/dropdown/img_27/GT.png'">GT</a></li>
+							<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/GT.png'">GT</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col">
 					<img alt="" id="img_13" class="round" src="./resources/dropdown/img_13/GT.png" width="100%" style="padding-right: 2%; max-width:250px;"/>
 					<div class="btn-group my-btn" id="myDropdown">
-						<button type="button" onclick="document.getElementById('img_13').src='./resources/dropdown/img_6_/GT.png'" class="btn btn-info">Dropdown</button>
+						<button type="button" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/GT.png'" class="btn btn-info">Dropdown</button>
 						<button type="button" class="btn my-btn-info btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-							<span class="visually-hidden">Toggle Dropdown</span>
+							<span class="visually-hidden">Toggle GT</span>
 						</button>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/Bicubic.png'">Bicubic</a></li>
