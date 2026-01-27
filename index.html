@@ -156,11 +156,11 @@
 		<!-- static images -->
 		<center>
 		<div class="container">
-			<div class="row justify-content-md-center">
+			<!-- <div class="row justify-content-md-center">
 			<div class="col-md-auto" style="padding: 1px;">
 				<img alt="" src="./resources/sr_fig.jpg" style="width: 100%; max-width: 1100px;"/>
 			</div>
-			</div>
+			</div> -->
 			<div class="row justify-content-md-center">
 			<div class="col-md-auto" style="padding: 1px;">
 				<img alt="" src="./resources/supp_fig_kernel_panel.png" style="width: 100%; max-width: 1100px;"/>
@@ -193,22 +193,22 @@
 					</div>
 					<div class="d-flex justify-content-center mt-3">
 						<div class="btn-group my-btn" id="myDropdown">
-							<button type="button" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/GT.png'" class="btn btn-info">Dropdown</button>
+							<button id="btn_img_6_" type="button" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/GT.png'; document.getElementById('btn_img_6_').textContent='GT'" class="btn btn-info">GT</button>
 							<button type="button" class="btn my-btn-info btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="visually-hidden">Toggle GT</span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/Bicubic.png'">Bicubic</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/KernelFusion.png'">KernelFusion</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/SinSR.png'">SinSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/StableSR.png'">StableSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/SwinIR.png'">SwinIR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/DCLS.png'">DCLS</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/RealDAN.png'">RealDAN</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/DRAT.png'">DRAT</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/DIFFBIR.png'">DIFFBIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/Bicubic.png'; document.getElementById('btn_img_6_').textContent='Bicubic'">Bicubic</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/KernelFusion.png'; document.getElementById('btn_img_6_').textContent='KernelFusion'">KernelFusion</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/SinSR.png'; document.getElementById('btn_img_6_').textContent='SinSR'">SinSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/StableSR.png'; document.getElementById('btn_img_6_').textContent='StableSR'">StableSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/SwinIR.png'; document.getElementById('btn_img_6_').textContent='SwinIR'">SwinIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/DCLS.png'; document.getElementById('btn_img_6_').textContent='DCLS'">DCLS</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/RealDAN.png'; document.getElementById('btn_img_6_').textContent='RealDAN'">RealDAN</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/DRAT.png'; document.getElementById('btn_img_6_').textContent='DRAT'">DRAT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/DIFFBIR.png'; document.getElementById('btn_img_6_').textContent='DIFFBIR'">DIFFBIR</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/GT.png'">GT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_6_').src='./resources/dropdown/img_6_/GT.png'; document.getElementById('btn_img_6_').textContent='GT'">GT</a></li>
 							</ul>
 						</div>
 					</div>
@@ -226,22 +226,22 @@
 					</div>
 					<div class="d-flex justify-content-center mt-3">
 						<div class="btn-group my-btn" id="myDropdown">
-							<button type="button" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/GT.png'" class="btn btn-info">Dropdown</button>
+							<button id="btn_img_27" type="button" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/GT.png'; document.getElementById('btn_img_27').textContent='GT'" class="btn btn-info">GT</button>
 							<button type="button" class="btn my-btn-info btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="visually-hidden">Toggle GT</span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/Bicubic.png'">Bicubic</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/KernelFusion.png'">KernelFusion</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/SinSR.png'">SinSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/StableSR.png'">StableSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/SwinIR.png'">SwinIR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/DCLS.png'">DCLS</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/RealDAN.png'">RealDAN</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/DRAT.png'">DRAT</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/DIFFBIR.png'">DIFFBIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/Bicubic.png'; document.getElementById('btn_img_27').textContent='Bicubic'">Bicubic</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/KernelFusion.png'; document.getElementById('btn_img_27').textContent='KernelFusion'">KernelFusion</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/SinSR.png'; document.getElementById('btn_img_27').textContent='SinSR'">SinSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/StableSR.png'; document.getElementById('btn_img_27').textContent='StableSR'">StableSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/SwinIR.png'; document.getElementById('btn_img_27').textContent='SwinIR'">SwinIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/DCLS.png'; document.getElementById('btn_img_27').textContent='DCLS'">DCLS</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/RealDAN.png'; document.getElementById('btn_img_27').textContent='RealDAN'">RealDAN</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/DRAT.png'; document.getElementById('btn_img_27').textContent='DRAT'">DRAT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/DIFFBIR.png'; document.getElementById('btn_img_27').textContent='DIFFBIR'">DIFFBIR</a></li>
 								<li><hr class="dropdown-divider"></li> 
-								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/GT.png'">GT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_27').src='./resources/dropdown/img_27/GT.png'; document.getElementById('btn_img_27').textContent='GT'">GT</a></li>
 							</ul>
 						</div>
 					</div>
@@ -259,22 +259,22 @@
 					</div>
 					<div class="d-flex justify-content-center mt-3">
 						<div class="btn-group my-btn" id="myDropdown">
-							<button type="button" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/GT.png'" class="btn btn-info">Dropdown</button>
+							<button id="btn_img_13" type="button" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/GT.png'; document.getElementById('btn_img_13').textContent='GT'" class="btn btn-info">GT</button>
 							<button type="button" class="btn my-btn-info btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="visually-hidden">Toggle GT</span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/Bicubic.png'">Bicubic</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/KernelFusion.png'">KernelFusion</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/SinSR.png'">SinSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/StableSR.png'">StableSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/SwinIR.png'">SwinIR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/DCLS.png'">DCLS</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/RealDAN.png'">RealDAN</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/DRAT.png'">DRAT</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/DIFFBIR.png'">DIFFBIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/Bicubic.png'; document.getElementById('btn_img_13').textContent='Bicubic'">Bicubic</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/KernelFusion.png'; document.getElementById('btn_img_13').textContent='KernelFusion'">KernelFusion</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/SinSR.png'; document.getElementById('btn_img_13').textContent='SinSR'">SinSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/StableSR.png'; document.getElementById('btn_img_13').textContent='StableSR'">StableSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/SwinIR.png'; document.getElementById('btn_img_13').textContent='SwinIR'">SwinIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/DCLS.png'; document.getElementById('btn_img_13').textContent='DCLS'">DCLS</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/RealDAN.png'; document.getElementById('btn_img_13').textContent='RealDAN'">RealDAN</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/DRAT.png'; document.getElementById('btn_img_13').textContent='DRAT'">DRAT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/DIFFBIR.png'; document.getElementById('btn_img_13').textContent='DIFFBIR'">DIFFBIR</a></li>
 								<li><hr class="dropdown-divider"></li> 
-								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/GT.png'">GT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_13').src='./resources/dropdown/img_13/GT.png'; document.getElementById('btn_img_13').textContent='GT'">GT</a></li>
 							</ul>
 						</div>
 					</div>
@@ -292,22 +292,22 @@
 					</div>
 					<div class="d-flex justify-content-center mt-3">
 						<div class="btn-group my-btn" id="myDropdown">
-							<button type="button" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/GT.png'" class="btn btn-info">Dropdown</button>
+							<button id="btn_img_54" type="button" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/GT.png'; document.getElementById('btn_img_54').textContent='GT'" class="btn btn-info">GT</button>
 							<button type="button" class="btn my-btn-info btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="visually-hidden">Toggle GT</span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/Bicubic.png'">Bicubic</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/KernelFusion.png'">KernelFusion</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/SinSR.png'">SinSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/StableSR.png'">StableSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/SwinIR.png'">SwinIR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/DCLS.png'">DCLS</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/RealDAN.png'">RealDAN</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/DRAT.png'">DRAT</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/DIFFBIR.png'">DIFFBIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/Bicubic.png'; document.getElementById('btn_img_54').textContent='Bicubic'">Bicubic</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/KernelFusion.png'; document.getElementById('btn_img_54').textContent='KernelFusion'">KernelFusion</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/SinSR.png'; document.getElementById('btn_img_54').textContent='SinSR'">SinSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/StableSR.png'; document.getElementById('btn_img_54').textContent='StableSR'">StableSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/SwinIR.png'; document.getElementById('btn_img_54').textContent='SwinIR'">SwinIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/DCLS.png'; document.getElementById('btn_img_54').textContent='DCLS'">DCLS</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/RealDAN.png'; document.getElementById('btn_img_54').textContent='RealDAN'">RealDAN</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/DRAT.png'; document.getElementById('btn_img_54').textContent='DRAT'">DRAT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/DIFFBIR.png'; document.getElementById('btn_img_54').textContent='DIFFBIR'">DIFFBIR</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/GT.png'">GT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_54').src='./resources/dropdown/img_54/GT.png'; document.getElementById('btn_img_54').textContent='GT'">GT</a></li>
 							</ul>
 						</div>
 					</div>
@@ -325,22 +325,22 @@
 					</div>
 					<div class="d-flex justify-content-center mt-3">
 						<div class="btn-group my-btn" id="myDropdown">
-							<button type="button" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/GT.png'" class="btn btn-info">Dropdown</button>
+							<button id="btn_img_98" type="button" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/GT.png'; document.getElementById('btn_img_98').textContent='GT'" class="btn btn-info">GT</button>
 							<button type="button" class="btn my-btn-info btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="visually-hidden">Toggle GT</span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/Bicubic.png'">Bicubic</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/KernelFusion.png'">KernelFusion</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/SinSR.png'">SinSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/StableSR.png'">StableSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/SwinIR.png'">SwinIR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/DCLS.png'">DCLS</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/RealDAN.png'">RealDAN</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/DRAT.png'">DRAT</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/DIFFBIR.png'">DIFFBIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/Bicubic.png'; document.getElementById('btn_img_98').textContent='Bicubic'">Bicubic</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/KernelFusion.png'; document.getElementById('btn_img_98').textContent='KernelFusion'">KernelFusion</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/SinSR.png'; document.getElementById('btn_img_98').textContent='SinSR'">SinSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/StableSR.png'; document.getElementById('btn_img_98').textContent='StableSR'">StableSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/SwinIR.png'; document.getElementById('btn_img_98').textContent='SwinIR'">SwinIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/DCLS.png'; document.getElementById('btn_img_98').textContent='DCLS'">DCLS</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/RealDAN.png'; document.getElementById('btn_img_98').textContent='RealDAN'">RealDAN</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/DRAT.png'; document.getElementById('btn_img_98').textContent='DRAT'">DRAT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/DIFFBIR.png'; document.getElementById('btn_img_98').textContent='DIFFBIR'">DIFFBIR</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/GT.png'">GT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_98').src='./resources/dropdown/img_98/GT.png'; document.getElementById('btn_img_98').textContent='GT'">GT</a></li>
 							</ul>
 						</div>
 					</div>
@@ -358,22 +358,22 @@
 					</div>
 					<div class="d-flex justify-content-center mt-3">
 						<div class="btn-group my-btn" id="myDropdown">
-							<button type="button" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/GT.png'" class="btn btn-info">Dropdown</button>
+							<button id="btn_img_91" type="button" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/GT.png'; document.getElementById('btn_img_91').textContent='GT'" class="btn btn-info">GT</button>
 							<button type="button" class="btn my-btn-info btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="visually-hidden">Toggle GT</span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/Bicubic.png'">Bicubic</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/KernelFusion.png'">KernelFusion</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/SinSR.png'">SinSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/StableSR.png'">StableSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/SwinIR.png'">SwinIR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/DCLS.png'">DCLS</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/RealDAN.png'">RealDAN</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/DRAT.png'">DRAT</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/DIFFBIR.png'">DIFFBIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/Bicubic.png'; document.getElementById('btn_img_91').textContent='Bicubic'">Bicubic</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/KernelFusion.png'; document.getElementById('btn_img_91').textContent='KernelFusion'">KernelFusion</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/SinSR.png'; document.getElementById('btn_img_91').textContent='SinSR'">SinSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/StableSR.png'; document.getElementById('btn_img_91').textContent='StableSR'">StableSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/SwinIR.png'; document.getElementById('btn_img_91').textContent='SwinIR'">SwinIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/DCLS.png'; document.getElementById('btn_img_91').textContent='DCLS'">DCLS</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/RealDAN.png'; document.getElementById('btn_img_91').textContent='RealDAN'">RealDAN</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/DRAT.png'; document.getElementById('btn_img_91').textContent='DRAT'">DRAT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/DIFFBIR.png'; document.getElementById('btn_img_91').textContent='DIFFBIR'">DIFFBIR</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/GT.png'">GT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_91').src='./resources/dropdown/img_91/GT.png'; document.getElementById('btn_img_91').textContent='GT'">GT</a></li>
 							</ul>
 						</div>
 					</div>
@@ -391,22 +391,22 @@
 					</div>
 					<div class="d-flex justify-content-center mt-3">
 						<div class="btn-group my-btn" id="myDropdown">
-							<button type="button" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/GT.png'" class="btn btn-info">Dropdown</button>
+							<button id="btn_img_21" type="button" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/GT.png'; document.getElementById('btn_img_21').textContent='GT'" class="btn btn-info">GT</button>
 							<button type="button" class="btn my-btn-info btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="visually-hidden">Toggle GT</span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/Bicubic.png'">Bicubic</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/KernelFusion.png'">KernelFusion</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/SinSR.png'">SinSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/StableSR.png'">StableSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/SwinIR.png'">SwinIR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/DCLS.png'">DCLS</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/RealDAN.png'">RealDAN</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/DRAT.png'">DRAT</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/DIFFBIR.png'">DIFFBIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/Bicubic.png'; document.getElementById('btn_img_21').textContent='Bicubic'">Bicubic</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/KernelFusion.png'; document.getElementById('btn_img_21').textContent='KernelFusion'">KernelFusion</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/SinSR.png'; document.getElementById('btn_img_21').textContent='SinSR'">SinSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/StableSR.png'; document.getElementById('btn_img_21').textContent='StableSR'">StableSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/SwinIR.png'; document.getElementById('btn_img_21').textContent='SwinIR'">SwinIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/DCLS.png'; document.getElementById('btn_img_21').textContent='DCLS'">DCLS</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/RealDAN.png'; document.getElementById('btn_img_21').textContent='RealDAN'">RealDAN</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/DRAT.png'; document.getElementById('btn_img_21').textContent='DRAT'">DRAT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/DIFFBIR.png'; document.getElementById('btn_img_21').textContent='DIFFBIR'">DIFFBIR</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/GT.png'">GT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_21').src='./resources/dropdown/img_21/GT.png'; document.getElementById('btn_img_21').textContent='GT'">GT</a></li>
 							</ul>
 						</div>
 					</div>
@@ -424,22 +424,22 @@
 					</div>
 					<div class="d-flex justify-content-center mt-3">
 						<div class="btn-group my-btn" id="myDropdown">
-							<button type="button" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/GT.png'" class="btn btn-info">Dropdown</button>
+							<button id="btn_img_11" type="button" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/GT.png'; document.getElementById('btn_img_11').textContent='GT'" class="btn btn-info">GT</button>
 							<button type="button" class="btn my-btn-info btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
 								<span class="visually-hidden">Toggle GT</span>
 							</button>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/Bicubic.png'">Bicubic</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/KernelFusion.png'">KernelFusion</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/SinSR.png'">SinSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/StableSR.png'">StableSR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/SwinIR.png'">SwinIR</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/DCLS.png'">DCLS</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/RealDAN.png'">RealDAN</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/DRAT.png'">DRAT</a></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/DIFFBIR.png'">DIFFBIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/Bicubic.png'; document.getElementById('btn_img_11').textContent='Bicubic'">Bicubic</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/KernelFusion.png'; document.getElementById('btn_img_11').textContent='KernelFusion'">KernelFusion</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/SinSR.png'; document.getElementById('btn_img_11').textContent='SinSR'">SinSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/StableSR.png'; document.getElementById('btn_img_11').textContent='StableSR'">StableSR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/SwinIR.png'; document.getElementById('btn_img_11').textContent='SwinIR'">SwinIR</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/DCLS.png'; document.getElementById('btn_img_11').textContent='DCLS'">DCLS</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/RealDAN.png'; document.getElementById('btn_img_11').textContent='RealDAN'">RealDAN</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/DRAT.png'; document.getElementById('btn_img_11').textContent='DRAT'">DRAT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/DIFFBIR.png'; document.getElementById('btn_img_11').textContent='DIFFBIR'">DIFFBIR</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/GT.png'">GT</a></li>
+								<li><a class="dropdown-item" onclick="document.getElementById('img_11').src='./resources/dropdown/img_11/GT.png'; document.getElementById('btn_img_11').textContent='GT'">GT</a></li>
 							</ul>
 						</div>
 					</div>
