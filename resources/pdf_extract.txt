@@ -1,0 +1,393 @@
+--- page 1 ---
+000
+001
+002
+003
+004
+005
+006
+007
+008
+009
+010
+011
+012
+013
+014
+015
+016
+017
+018
+019
+020
+021
+022
+023
+024
+025
+026
+027
+028
+029
+030
+031
+032
+033
+034
+035
+036
+037
+038
+039
+040
+041
+042
+043
+044
+045
+046
+047
+048
+049
+050
+051
+052
+053
+Under review as a conference paper at ICLR 2026
+KERNELFUSION: ZERO-SHOTBLINDSUPER-RESOLUTION
+VIAPATCHDIFFUSION
+Anonymous authors
+Paper under double-blind review
+Figure 1:The importance of an accurate SR-Kernel.(A) SotA SR-methods fail on complex downscaling
+kernels, performing even worse than interpolation on such kernels. (B) Existing SR-kernel estimation methods
+cannot handle complex kernels. KernelFusion is the only method capable of estimating arbitrary SR-kernels.
+ABSTRACT
+Traditional super-resolution (SR) methods assume an “ideal” downscaling SR-
+kernel (e.g., bicubic downscaling) between the high-resolution (HR) image and
+the low-resolution (LR) image. Such methods fail once the LR images are gen-
+erated differently. Current blind-SR methods aim to remove this assumption,
+but are still fundamentally restricted to rather simplistic downscaling SR-kernels
+(e.g., anisotropic Gaussian kernels), and fail on more complex (out of distribu-
+tion) downscaling degradations. However, using the correct SR-kernel is often
+more important than using a sophisticated SR algorithm. In “KernelFusion” we
+introduce a zero-shot diffusion-based method that uses an unrestricted kernel. Our
+method recovers the unique image-specific SR-kernel directly from the LR input
+image, while simultaneously recovering its corresponding HR image. KernelFu-
+sion exploits the principle that the correct SR-kernel is the one that maximizes
+patch similarity across different scales of the LR image. We first train an image-
+specific patch-based diffusion model on the single LR input image, capturing
+its unique internal patch statistics. We then reconstruct a larger HR image with
+the same learned patch distribution, while simultaneously recovering the correct
+downscaling SR-kernel that maintains this cross-scale relation between the HR
+and LR images. Empirical results demonstrate that KernelFusion handles com-
+plex downscaling degradations where existing Blind-SR methods fail, achieving
+robust kernel recovery and superior SR quality. By breaking free from prede-
+fined kernel assumptions and training distributions, KernelFusion establishes a
+new paradigm of zero-shot Blind-SR that can handle unrestricted, image-specific
+kernels previously thought impossible.
+1
+--- page 2 ---
+054
+055
+056
+057
+058
+059
+060
+061
+062
+063
+064
+065
+066
+067
+068
+069
+070
+071
+072
+073
+074
+075
+076
+077
+078
+079
+080
+081
+082
+083
+084
+085
+086
+087
+088
+089
+090
+091
+092
+093
+094
+095
+096
+097
+098
+099
+100
+101
+102
+103
+104
+105
+106
+107
+Under review as a conference paper at ICLR 2026
+1 INTRODUCTION
+Super-resolution (SR) is an inverse problem of recovering a high-resolution (HR) image from its
+low-resolution (LR) counterpart, given by:
+ILR = (IHR ∗k s)↓ s,(1)
+wherek s is the downscaling kernel (also known as SR kernel) and↓ s denotes subsampling by a
+scale factors. Traditional SR methods have achieved impressive results Dong et al. (2015); Lim
+et al. (2017); Kim et al. (2016); Zhang et al. (2018b;c); Saharia et al. (2022); Li et al. (2024) under
+the assumption thatk s is a global, known kernel (e.g. bicubic with antialiasing), but this is rarely the
+case. The SR-kernel tends to beimage-specific; it is affected not only by sensor optics, but also by
+camera motion, subtle hand movements, and other factors. Evidently, these methods perform poorly
+in any scenario other than synthetic data specifically created using the assumed kernel. In fact, it
+was shown Levin et al. (2009); Efrat et al. (2013), that theaccuracy of the SR-kernel is often more
+critical for obtaining good SR, than the image prior or the choice of SR algorithm used.
+Blind-SR methods have emerged to address this limitation. Some approaches aim to explicitly
+estimate the unknown kernel (e.g., Michaeli & Irani (2013); Bell-Kligler et al. (2019); Xia et al.
+(2024)), whereas others represent the SR-kernel implicitly Gu et al. (2019); Luo et al. (2023); Huang
+et al. (2020); Kim et al. (2021); Ates et al. (2023), or aim to design networks that are robust to kernel
+variations (e.g., Liang et al. (2021); Wang et al. (2024b;a); Luo et al. (2022; 2025); Lin et al. (2024)).
+However, existing Blind-SR methods are fundamentally limited: They can only super-resolve well
+LR images which were downscaled by simple, low-pass-filter kernels (e.g., (an)isotropic Gaussians),
+and fail on more complex downscaling kernels, which are outside their training distribution. In fact,
+for LR images obtained by non-Gaussian downscaling kernels, SOTA Blind-SR methods perform
+worse than simple interpolation.(see Fig. 1a and Sec. 3).
+In “KernelFusion”, we introduce a zero-shot diffusion-based method that makes no assumptions (ex-
+plicitly or implicitly) about the downscaling kernel, other than the kernel being global. Our method
+recovers the unique image-specific SR-kernel directly from the LR input image, whilesimulta-
+neouslyrecovering its corresponding HR image. KernelFusion exploits the principle (presented
+by Michaeli & Irani (2013) and used in Bell-Kligler et al. (2019)), that the correct SR-kernel is the
+one that also maximizes patch similarity across different scales of the LR image. More specifically,
+we first train animage-specificpatch-based diffusion model on the single LR input image, capturing
+its unique internal patch statistics. We then reconstruct the larger HR image during the reverse dif-
+fusion process, enforcing the same patch distribution, while simultaneously estimating downscaling
+SR-kernel. While existing methods excel at handling Gaussian kernels, empirical results show that
+KernelFusion succeeds in recovering valid kernels and reconstructions under complex degradations,
+scenarios where prior Blind-SR methods tend to break down.
+The ability of KernelFusion to handle complex downscaling kernels (where all previous SR methods
+fail), stems from the following critical design choices:
+1.Being a zero-shot estimation method which trainsinternallyon the LR input image only, Kernel-
+Fusion is not bound by any external training distribution, hence can handle any type of downscaling
+kernel. There is no notion of “out-of-distribution” kernels, whichexternally-trainedBlind-SR meth-
+ods suffer from (see Fig. 1a).
+2.Previous zero-shot SR-kernel methods Michaeli & Irani (2013); Bell-Kligler et al. (2019) esti-
+mated the kernel only, requiring a separate independent SR algorithm to super-resolve the LR image
+with their recovered kernel (e.g., using ZSSR Shocher et al. (2018b) or SRMD Zhang et al. (2018a),
+which can receive a user-specified kernel). Such a 2-step process suffers from accumulated errors
+and inconsistencies between the estimated kernel and the estimated HR image. In contrast, Kernel-
+Fusionsimultaneouslyestimates both the SR-kernel and the HR imagein a consistent manner.
+3.The explicit kernel estimation methods of Bell-Kligler et al. (2019); Xia et al. (2024); Ates
+et al. (2023); Yang et al. (2024b) seem to recover well only specific types of kernels (Gaussians and
+motion lines). We suspect that this limitation stems from the implicit-bias of the CNN and MLP
+architectures, which tend to produce smooth outputs (as also observed in Tancik et al. (2020)). In
+contrast, the kernel-estimation component in KernelFusion employs anImplicit Neural Representa-
+tion(INR) architecture, which recovers complexnon-smoothdownscaling SR-kernels (see Fig. 1).
+2
+--- page 3 ---
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+Under review as a conference paper at ICLR 2026
+Figure 2:Method Overview.Our approach consists of 2 stages:Phase 1 : We train a diffusion model
+(PD) to learn the patch distribution of a single image.Phase 2 : We perform blind SR and kernel estimation
+simultaneously. In particular, we use the trained PD to shift the HR guess toward the patch distribution of the LR
+input. A refinement U-Net and an implicit kernel representation model are trained jointly under a consistency
+loss, ensuring that convolving the estimated HR image with the learned kernel reproduces the original LR
+image.
+Our aim is not to deliver a production-ready Blind-SR system, but to establish feasibility of un-
+restricted kernel estimation from a single LR image while simultaneously recovering the HR im-
+age. By breaking free from predefined kernel assumptions and training distributions, KernelFu-
+sion pushes Blind-SR into a new, assumption-free paradigm – handling out-of-distribution data and
+downscaling kernels which were previously out of reach.
+•KernelFusionis the first deep Blind-SR method able to recover arbitrary downscaling kernels.
+• SinceKernelFusiontrains on the LR input image, there isno notionof “out-of-distribution” data.
+It is trained to adapt to theimage-specificdata and downscaling kernel.
+•KernelFusionprovides state-of-the-art SR results on challengingout-of-distributiondata, where
+leading SR methods fail (while being competitive within-distribution).
+2 RELATEDWORK
+We first describe three main types of Blind-SR Liu et al. (2022). We then review diffusion models
+and their use for inverse problems, which is related to our method.
+Blind-SR trained on synthetic degradations:These methods train on LR images generated by
+synthetic degradations from apredefineddistribution of degradations. When applied to data close
+to that distribution they achieve visually pleasing results. These include SwinIR Liang et al. (2021),
+Real-ESRGAN Wang et al. (2021) and many more Conde et al. (2022); Zhang et al. (2021); Jo
+et al. (2021); Luo et al. (2022); Lin et al. (2024); Sun et al. (2024); Wu et al. (2024b); Wei et al.
+(2020); Yang et al. (2024a); Zhang et al. (2024); Wu et al. (2024a); Chen et al. (2025). Such methods
+are restricted by their training distribution, thus fail on LR images generated by out-of-distribution
+downscaling kernels (e.g., non-Gaussian kernels).
+Blind-SR with latent kernel representation:Other methods represent degradations by a latent
+features vector. These methods perform SR and refinement of the degradation features, often based
+on alternating SR and latent kernel estimation. This was first shown by IKC Gu et al. (2019), later
+improved by unfolding this alternation with DAN Huang et al. (2020); Luo et al. (2023) and others
+Luo et al. (2022); Kim et al. (2021); Zhang et al. (2020); Sohl-Dickstein et al. (2015); Mehta et al.
+(2025). The kernel representation is data-driven, hence also based on the synthetic degradations
+used at training. These methods too, fail on images downscaled by kernels out of their training
+distribution.
+Blind SR-Kernel Estimation:Acknowledging the importance of an accurate SR-kernel, some
+approaches aim to explicitly estimate the unknown SR-kernel directly from the LR image
+(e.g., Michaeli & Irani (2013); Bell-Kligler et al. (2019); Xia et al. (2024); Ates et al. (2023); Yang
+et al. (2024b); Tao et al. (2021)). Notably, Michaeli & Irani (2013) was the first to observe that the
+optimal SR-kernel is the one that maximizes the similarity of small patchesacrossdifferent scales of
+the LR image, and accordingly used cross-scale patch nearest-neighbors to estimate the SR-kernel.
+KernelGAN Bell-Kligler et al. (2019) further used this principle within deep learning, showing that
+the SR-kernel can be estimated by training an image-specific GAN on the LR image. However, the
+3
+--- page 4 ---
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+Under review as a conference paper at ICLR 2026
+Figure 3:Blind-SR comparisonon the DIV2KFK dataset (4× SR). Each row relates to a different LR image
+from DIV2KFK, while each column shows the output of a different method. Notably, our method reduces
+doubling artifacts in structured patterns (e.g., aerial road scene, 4th row), demonstrating its effectiveness in
+restoring fine details and mitigating motion effects.
+zero-shot methods of Michaeli & Irani (2013); Bell-Kligler et al. (2019) are pure kernel estimation
+methods. They do not perform any SR, hence require a separate followup algorithm to perform the
+SR step on the LR image (e.g., using ZSSR Shocher et al. (2018b) or SRMD Zhang et al. (2018a)),
+which can receive a user-specified kernel as an input. This restricts their applicability. Moreover, the
+explicit kernel estimation methods of Bell-Kligler et al. (2019); Xia et al. (2024); Ates et al. (2023);
+Yang et al. (2024b) can only recover well specific types of kernels (Gaussians and motion lines –
+see examples in Fig. 1).
+Diffusion Models and Inverse Problems:Diffusion probabilistic models Sohl-Dickstein et al.
+(2015); Ho et al. (2020) have become a powerful tool for modeling complex image distributions.
+More recently, under the Deep Internal Learning regime Shocher et al. (2018b); Gandelsman et al.
+(2019); Ulyanov et al. (2018); Shocher et al. (2018a); Shaham et al. (2019); Granot et al. (2022)
+diffusion-based approaches have been adapted for the single-image setting Nikankin et al. (2023);
+Wang et al. (2022); Kleiner et al. (2023). Additionally, diffusion models have shown promise in
+solving inverse problems such as deblurring and super-resolution Kawar et al. (2022); Chung et al.
+(2022). Recent works further enhance these approaches by incorporating data-consistency con-
+straints via null-space projections Wang et al. (2023) or by adding back-projection steps Hui et al.
+(2024). Plug-and-play (PnP) adaptions to diffusion or flow matching, such as Zhu et al. (2023);
+Martin et al. (2024), use the model as a denoiser in an iterative reconstruction algorithm. However,
+these methods do not cover the case of blind SR. Additional work on patch-based diffusion mod-
+els Altekr¨uger et al. (2023); Hu et al. (2024a;b) further exploits local image statistics for improved
+detail recovery. Due to their stochastic nature, diffusion models struggle to adhere to measurement
+constraints. Moreover, they may exhibit a distribution mismatch between the training data and the
+observed measurements, necessitating careful adaptation Hu et al. (2024b). A related line of work
+leverages diffusion priors for kernel estimation in inverse problems, most notably BlindDPS Chung
+et al. (2023), which tackles blind deblurring and imaging through turbulence. While conceptually
+related to KernelFusion, BlindDPS operates in a different regime, relying on pre-trained diffusion
+models over images and kernels trained on large synthetic blur datasets, whereas KernelFusion is
+entirely zero-shot.
+3 THEIMPORTANCE OF ANACCURATESR-KERNEL
+The accuracy of the SR-kernel is critical for achieving high-fidelity HR image reconstruction, often
+playing a more crucial role than the image prior or SR method itself Efrat et al. (2013); Levin et al.
+(2009). The SR process fundamentally relies on inverting the degradation introduced by downsam-
+pling, which is dictated by the underlying kernel. If the kernel is inaccurate or out of distribution,
+even advanced SR models risk producing artifacts and unrealistic results.
+4
