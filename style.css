@@ -107,9 +107,13 @@ span.command-copy:hover {
 /* buttons */
 
 .my-btn {
-    position: absolute !important;
     display: inline-flex;
     vertical-align: middle;
+}
+
+.my-btn > .btn:first-child {
+    min-width: 150px;
+    text-align: center;
 }
 
 .my-btn-info {

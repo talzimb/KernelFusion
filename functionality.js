@@ -29,15 +29,53 @@ $(document).ready(function() {
 });
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ dropdown menu ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-$(document).ready(function () {
-    $('#myDropdown .dropdown-menu').on({
-"click":function(e){
-  e.stopPropagation();
+// Data-driven dropdown generation
+var dropdownImages = ['img_6_', 'img_27', 'img_13', 'img_54', 'img_98', 'img_91', 'img_21', 'img_11'];
+var dropdownMethods = ['Bicubic', 'KernelFusion', 'SinSR', 'StableSR', 'SwinIR', 'DCLS', 'RealDAN', 'DRAT', 'DIFFBIR'];
+
+function selectMethod(imgId, method) {
+    document.getElementById(imgId).src = './resources/dropdown/' + imgId + '/' + method + '.png';
+    document.getElementById('btn_' + imgId).textContent = method;
 }
-});
-$('.closer').on('click', function () {
-$('.btn-group').removeClass('open');
-});
+
+$(document).ready(function () {
+    var grid = document.getElementById('dropdown-grid');
+    if (grid) {
+        dropdownImages.forEach(function (imgId) {
+            var menuItems = dropdownMethods.map(function (method) {
+                return '<li><a class="dropdown-item" onclick="selectMethod(\'' + imgId + '\', \'' + method + '\')">' + method + '</a></li>';
+            }).join('\n');
+
+            var col = '<div class="col">' +
+                '<div class="d-flex align-items-start gap-3 justify-content-center" style="margin-bottom: 18px;">' +
+                    '<img src="./resources/dropdown/' + imgId + '/gt_marked.png" class="round flex-shrink-0" style="height:200px; width:auto;" alt="Static" />' +
+                    '<img alt="" id="' + imgId + '" class="round" src="./resources/dropdown/' + imgId + '/GT.png" style="padding-right: 2%; height:200px; width:auto;" />' +
+                '</div>' +
+                '<div class="d-flex justify-content-center mt-3">' +
+                    '<div class="btn-group my-btn">' +
+                        '<button id="btn_' + imgId + '" type="button" onclick="selectMethod(\'' + imgId + '\', \'GT\')" class="btn btn-info">GT</button>' +
+                        '<button type="button" class="btn my-btn-info btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">' +
+                            '<span class="visually-hidden">Toggle GT</span>' +
+                        '</button>' +
+                        '<ul class="dropdown-menu">' +
+                            menuItems +
+                            '<li><hr class="dropdown-divider"></li>' +
+                            '<li><a class="dropdown-item" onclick="selectMethod(\'' + imgId + '\', \'GT\')">GT</a></li>' +
+                        '</ul>' +
+                    '</div>' +
+                '</div>' +
+            '</div>';
+
+            grid.insertAdjacentHTML('beforeend', col);
+        });
+    }
+
+    $('.dropdown-menu').on('click', function (e) {
+        e.stopPropagation();
+    });
+    $('.closer').on('click', function () {
+        $('.btn-group').removeClass('open');
+    });
 });
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ image slider ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
